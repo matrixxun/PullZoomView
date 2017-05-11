@@ -12,6 +12,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 /**
@@ -25,7 +26,7 @@ import android.widget.LinearLayout;
  * 2014/11/7        ZhuWenWu            1.0                    1.0
  * Why & What is modified:
  */
-public abstract class PullToZoomBase<T extends View> extends LinearLayout implements IPullToZoom<T> {
+public abstract class PullToZoomBase<T extends View> extends FrameLayout implements IPullToZoom<T> {
     private static final float FRICTION = 2.0f;
     protected T mRootView;
     protected View mHeaderView;//头部View
@@ -58,7 +59,6 @@ public abstract class PullToZoomBase<T extends View> extends LinearLayout implem
     }
 
     private void init(Context context, AttributeSet attrs) {
-        setGravity(Gravity.CENTER);
 
         ViewConfiguration config = ViewConfiguration.get(context);
         mTouchSlop = config.getScaledTouchSlop();
